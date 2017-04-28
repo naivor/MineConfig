@@ -1,0 +1,72 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+export PATH
+
+if [ "$PS1" ]; then
+  if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+    # The file bash.bashrc already sets the default PS1.
+    # PS1='\h:\w\$ '
+    if [ -f /etc/bash.bashrc ]; then
+      . /etc/bash.bashrc
+    fi
+  else
+    if [ "`id -u`" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+# java SDK
+
+export  JAVA_HOME=/opt/JDK
+export  CLASSPATH=$JAVA_HOMEb:$JAVA_HOME/jre
+export  PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+
+
+# android  studio
+
+export  STUDIO_HOME=/opt/android-studio
+export  PATH=$PATH:$STUDIO_HOME/bin
+
+# android  SDK
+
+export  ANDROID_HOME=/opt/ADK
+export  ANDROID_NDK=/opt/ADK/ndk-bundle
+export  PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+
+# gradle
+
+export GRADLE_HOME=/opt/gradle/gradle-3.4.1
+export PATH=$PATH:$GRADLE_HOME/bin
+
+# dex2jar
+
+export D2J_HOME=/opt/dex2jar
+export PATH=$PATH:$D2J_HOME
+
+# pycharm
+
+export PYCHARM_HOME=/opt/pycharm
+export PATH=$PATH:$PYCHARM_HOME/bin
+
+
+tty | egrep -q tty[1-6] && export LC_ALL=C
+
+
