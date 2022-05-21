@@ -1,0 +1,39 @@
+######v2ray######
+
+https://bulink.me/sub/pgdg7/vm
+
+https://v1.ddnsgo.xyz/link/cjzfMYGfNaXHXLUF?sub=3
+
+https://raw.fastgit.org/freefq/free/master/v2
+
+
+######clash######
+
+https://v1.ddnsgo.xyz/link/vKfwcdYMaySeO8Vd?clash=1
+
+https://tsd.ink/free
+
+https://free.kingfu.cf/clash/config
+
+http://wxshi.top:9090/clash/config
+
+https://v1.mk/fSdpnkl
+
+
+########pac######
+
+https://raw.githubusercontent.com/petronny/gfwlist2pac/master/gfwlist.pac
+
+
+########mixin######
+mixin: # object
+  dns:
+    enable: true
+    nameserver:
+        - '192.168.0.1'     # 上级网关DNS，请根据实际设置
+        - '223.5.5.5'        # 这里开始的DNS可以换成其他DNS，尽可能多设置几个，无需考虑污染
+        - '114.114.114.114'
+        - 'tls://dns.google'
+        - 'tls://dns.rubyfish.cn'
+        
+
