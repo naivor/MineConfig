@@ -1,0 +1,1 @@
+0 12 * * * /bin/bash  -c "DISPLAY=:0  zenity --question --width=320 --height=240 --title='午餐提示'  --text='午餐时间到了，您确认要继续吗'"
